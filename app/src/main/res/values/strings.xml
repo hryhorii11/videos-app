@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Videos app</string>
+    <string name="video_list_screen_title">Your videos</string>
+    <string name="try_again_button_text">Try again</string>
+    <string name="internet_exception_message">Check your internet connection</string>
+    <string name="server_error_message">Server problem. Try again later</string>
+    <string name="api_error">"Api error: "</string>
+    <string name="unknown_error_message">Unknown error. Try again</string>
+    <string name="other_error_message">Something went wrong. Try again</string>
+    <string name="error_icon">Error Icon</string>
+    <string name="back_button_description">Back button</string>
+</resources>
