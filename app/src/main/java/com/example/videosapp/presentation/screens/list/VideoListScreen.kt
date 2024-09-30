@@ -51,9 +51,6 @@ fun VideoListScreen(
 ) {
 
     val videoState by viewModel.videos.collectAsState()
-    LaunchedEffect(Unit) {
-        viewModel.setVideos()
-    }
 
     VideoListScreenContent(
         videosState = videoState,

@@ -20,8 +20,11 @@ class PlayerViewModel @Inject constructor(
     private val _videos = MutableStateFlow<UIState<List<VideoHit>>>(UIState.Idle())
     val videos: StateFlow<UIState<List<VideoHit>>> = _videos
 
+    init {
+        setVideos()
+    }
 
-    fun setVideos() {
+     fun setVideos() {
         viewModelScope.launch(Dispatchers.IO) {
             _videos.value = UIState.Loading()
             repository.getVideos().collect {

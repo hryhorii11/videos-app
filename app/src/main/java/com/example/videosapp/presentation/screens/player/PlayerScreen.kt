@@ -1,6 +1,7 @@
 package com.example.videosapp.presentation.screens.player
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -66,9 +67,7 @@ fun PlayerScreen(
 ) {
 
     val videosState by viewModel.videos.collectAsState()
-    LaunchedEffect(Unit) {
-        viewModel.setVideos()
-    }
+
 
     when (videosState) {
         is UIState.Success -> {
@@ -125,10 +124,9 @@ fun PlayerScreenContent(
     val exoPlayer = remember {
         ExoPlayer.Builder(context).build().apply {
             this.setMediaItems(mediaItems)
-
             this.seekTo(currentMediaItemIndex.intValue, currentVideoPosition.longValue)
             this.prepare()
-            playWhenReady = false
+            playWhenReady = true
             this.addListener(object : Player.Listener {
 
                 override fun onPlayerError(error: PlaybackException) {
